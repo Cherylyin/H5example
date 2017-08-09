@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+       <title>
+         markdown editor
+       </title>
+        <link href="bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+        <link type="text/css" href="./font-awesome/css/font-awesome.css" rel="stylesheet"></link>
+    </head>
+    <body>
+         <textarea name="content" data-provide="markdown" rows="10"></textarea>
+
+         <script type="text/javascript" src="jquery-2.2.4.js"></script>
+         <script type="text/javascript" src="bootstrap-markdown.js"></script>
+          <script type="text/javascript" src="markdown.js"></script>
+           <script type="text/javascript" src="to-markdown.js"></script>
+          <script type="text/javascript" src="dropzone.js"></script>
+          <script type="text/javascript">
+
+                Dropzone.autoDiscover = false;
+				$("[data-provide=markdown-editor]").markdown({
+					iconlibrary: "fa",
+					autofocus:false,
+					dropZoneOptions:Dropzone.options = {
+					clickable: false,//to be clickable to select files
+					acceptedFiles:'image/*',
+					paramName: "img", // The name that will be used to transfer the file
+					maxFilesize: 2, // MB
+					url: "uploader.php",
+					addedfile: function(file) {
+					//This is an example of completely disabling Dropzone's default behavior.
+					}
+				 }
+				});
+         </script>
+    </body>
+</html>
